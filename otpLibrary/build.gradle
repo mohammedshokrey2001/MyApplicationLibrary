@@ -16,6 +16,7 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
+
     buildFeatures {
         dataBinding true
     }
@@ -47,15 +48,18 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
-afterEvaluate{
 
-    publishing{
-        publications {
-            release(MavenPublication){
-                groupId = 'com.github.mohammedshokrey2001'
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.mohammedshokrey2001'
 
-                artifactId = 'otp-activity-fawry'
-                version = '1.0'
+            artifactId = 'otp-activity-fawry'
+
+            version = '1.0'
+
+            afterEvaluate {
+                            from components.release
             }
         }
     }
